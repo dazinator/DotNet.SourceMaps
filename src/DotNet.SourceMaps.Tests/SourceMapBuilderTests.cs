@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -42,7 +43,15 @@ namespace DotNet.SourceMaps.Tests
 
             var sourceMap = builder.Build();
             Assert.NotNull(sourceMap);
-            
+
+            var lines = sourceMap.Mappings.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+            Assert.Equal(2, lines.Length);
+
+            var line1Segments = lines[0].Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            var line2segments = lines[1].Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+
 
         }
 
