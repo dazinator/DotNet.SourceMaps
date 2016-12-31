@@ -23,7 +23,7 @@
       "sourcemaps",
       "source maps"
     ],
-    "releaseNotes": "Initial Release."
+    "releaseNotes": "Added ability to create non-name mappings."
   },
   "dependencies": {
     "NETStandard.Library": "1.6.0"
