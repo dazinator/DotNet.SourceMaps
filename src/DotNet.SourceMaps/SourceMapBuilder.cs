@@ -97,13 +97,13 @@ namespace DotNet.SourceMaps
             return index;
         }
 
-        public void AddMapping(int nameIndex)
+        public void AddMapping(int? nameIndex = null)
         {
 
             var currentSourceIndex = CurrentSourceIndex;
             var sourceContext = CurrentSourceFileContext;
 
-            if (nameIndex >= Names.Count)
+            if (nameIndex != null && nameIndex >= Names.Count)
             {
                 throw new ArgumentOutOfRangeException(nameof(nameIndex));
             }

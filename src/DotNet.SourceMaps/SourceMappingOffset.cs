@@ -38,7 +38,38 @@ namespace DotNet.SourceMaps
                     OutputOffset = currentMapping.Output;
                 }
 
-                NameIndexOffset = currentMapping.NameIndex - fromMapping.NameIndex;
+                // not all mappings have a name index, search for previous mapping with name index and go relative to that.
+
+                if (currentMapping.NameIndex == null)
+                {
+                    NameIndexOffset = null;
+                }
+                else if (FromMapping.NameIndex != null)
+                {
+                    NameIndexOffset = currentMapping.NameIndex.Value - fromMapping.NameIndex.Value;
+
+                }
+                else
+                {
+                    // need to get previous name index
+                    SourceMapping previousNameMapping = null;
+                    var offSet = FromMapping.Offset;
+                    while (offSet != null)
+                    {
+                        if (offSet.NameIndexOffset != null)
+                        {
+                            previousNameMapping = offSet.FromMapping;
+                            break;
+                        }
+
+                        offSet = offSet.FromMapping.Offset;
+                    }
+                    if (previousNameMapping != null)
+                    {
+                        NameIndexOffset = currentMapping.NameIndex.Value - previousNameMapping.NameIndex.Value;
+                    }
+                }
+
                 SourceIndexOffset = currentMapping.SourceIndex - fromMapping.SourceIndex;
             }
         }
@@ -51,7 +82,7 @@ namespace DotNet.SourceMaps
 
         public LineNumberAndPosition OutputOffset { get; set; }
 
-        public int NameIndexOffset { get; set; }
+        public int? NameIndexOffset { get; set; }
 
         public int SourceIndexOffset { get; set; }
 
@@ -62,7 +93,11 @@ namespace DotNet.SourceMaps
             builder.Append(Base64VariableLengthQuantityFormat.Encode(SourceIndexOffset));
             builder.Append(Base64VariableLengthQuantityFormat.Encode(InputOffset.LineNumber));
             builder.Append(Base64VariableLengthQuantityFormat.Encode(InputOffset.ColumnPosition));
-            builder.Append(Base64VariableLengthQuantityFormat.Encode(NameIndexOffset));
+            if (NameIndexOffset != null)
+            {
+                builder.Append(Base64VariableLengthQuantityFormat.Encode(NameIndexOffset.Value));
+            }
+
 
 
         }

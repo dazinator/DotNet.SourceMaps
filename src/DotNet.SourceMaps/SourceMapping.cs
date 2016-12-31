@@ -7,7 +7,7 @@
         public LineNumberAndPosition Output { get; set; }
         public LineNumberAndPosition Input { get; set; }
         public int SourceIndex { get; set; }
-        public int NameIndex { get; set; }
+        public int? NameIndex { get; set; }
 
         public SourceMappingOffset Offset { get; private set; }
 
