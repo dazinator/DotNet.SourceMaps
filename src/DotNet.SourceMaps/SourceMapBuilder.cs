@@ -8,27 +8,6 @@ namespace DotNet.SourceMaps
     public class SourceMapBuilder
     {
 
-        public SourceMapping CurrentMapping { get; set; }
-
-
-        public List<SourceMapping> Mappings { get; set; }
-
-        // public List<SourceMappingOffset> MappingOffsets { get; set; }
-
-        private List<string> Names { get; set; }
-
-        private List<SourceFileContext> Sources { get; set; }
-
-        private int MaxSourceIndex { get; set; }
-
-        private int MaxNameIndex { get; set; }
-
-        public SourceFileContext OutputFileContext { get; set; }
-
-        private int CurrentSourceIndex { get; set; }
-
-        public SourceFileContext CurrentSourceFileContext { get; private set; }
-
 
         public SourceMapBuilder()
         {
@@ -39,6 +18,21 @@ namespace DotNet.SourceMaps
             CurrentMapping = null;
             // OutputFileContext = new SourceFileContext();
         }
+
+        public SourceMapping CurrentMapping { get; set; }
+
+        public List<SourceMapping> Mappings { get; set; }     
+
+        private List<string> Names { get; set; }
+
+        private List<SourceFileContext> Sources { get; set; }
+
+        public SourceFileContext OutputFileContext { get; set; }
+
+        private int CurrentSourceIndex { get; set; }
+
+        public SourceFileContext CurrentSourceFileContext { get; private set; }
+            
         public SourceMapBuilder WithOutputFile(string name)
         {
             this.OutputFileContext = new SourceFileContext(name, false);
@@ -117,12 +111,11 @@ namespace DotNet.SourceMaps
             };
 
             //  var mapping = new SourceMapping() { SourceIndex = sourceIndex, NameIndex = nameIndex, Input = new LineNumberAndPosition(CurrentLineNumber, ) }
-          
+
             mapping.SetOffset(CurrentMapping);
             CurrentMapping = mapping;
             Mappings.Add(mapping);
         }
-
 
         public SourceMap Build()
         {
