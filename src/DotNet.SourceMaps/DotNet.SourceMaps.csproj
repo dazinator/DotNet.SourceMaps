@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Manipulate SourceMaps with .NET.</Description>
+    <AssemblyTitle>DotNet SourceMaps</AssemblyTitle>
+    <Authors>Darrell Tunnell &lt;darrell.tunnell@googlemail.com&gt;</Authors>
+    <TargetFrameworks>netstandard1.1;net40;net45;net46</TargetFrameworks>
+    <DebugType>portable</DebugType>
+    <AssemblyName>DotNet.SourceMaps</AssemblyName>
+    <PackageId>DotNet.SourceMaps</PackageId>
+    <PackageTags>sourcemap;source map;sourcemaps;source maps</PackageTags>
+    <PackageReleaseNotes>Added ability to create non-name mappings.</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/dazinator/DotNet.SourceMaps</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/dazinator/DotNet.SourceMaps/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/dazinator/DotNet.SourceMaps</RepositoryUrl>
+    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+</Project>

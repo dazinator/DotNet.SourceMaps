@@ -97,9 +97,6 @@ namespace DotNet.SourceMaps
             {
                 builder.Append(Base64VariableLengthQuantityFormat.Encode(NameIndexOffset.Value));
             }
-
-
-
         }
     }
 }

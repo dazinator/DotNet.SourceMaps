@@ -3,8 +3,6 @@ using System.Text;
 
 namespace DotNet.SourceMaps
 {
-
-
     public class SourceMap
     {
         public SourceMap()

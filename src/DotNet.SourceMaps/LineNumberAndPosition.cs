@@ -1,8 +1,5 @@
 ﻿namespace DotNet.SourceMaps
 {
-
-
-
     public struct LineNumberAndPosition
     {
         public int LineNumber { get; set; }
