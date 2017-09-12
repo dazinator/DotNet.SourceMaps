@@ -1,19 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DotNet.SourceMaps", "DotNet.SourceMaps\DotNet.SourceMaps.xproj", "{E52ECC65-1C43-4FE5-A330-EFE5A344CBE3}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DotNet.SourceMaps.Tests", "DotNet.SourceMaps.Tests\DotNet.SourceMaps.Tests.xproj", "{0CA1418D-447A-434B-8CD2-2091C3898F82}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3C1199B4-0D19-4647-98A8-74DC4A43E413}"
 	ProjectSection(SolutionItems) = preProject
 		..\appveyor.yml = ..\appveyor.yml
-		..\build.cake = ..\build.cake
-		..\build.cmd = ..\build.cmd
-		..\build.ps1 = ..\build.ps1
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet.SourceMaps", "DotNet.SourceMaps\DotNet.SourceMaps.csproj", "{E52ECC65-1C43-4FE5-A330-EFE5A344CBE3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet.SourceMaps.Tests", "DotNet.SourceMaps.Tests\DotNet.SourceMaps.Tests.csproj", "{0CA1418D-447A-434B-8CD2-2091C3898F82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,5 +29,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C080A536-8326-4337-B67A-B72D2216ACB2}
 	EndGlobalSection
 EndGlobal

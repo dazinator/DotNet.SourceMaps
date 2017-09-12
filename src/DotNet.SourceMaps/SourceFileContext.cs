@@ -72,12 +72,7 @@
 
             return this.Content.GetHashCode();
         }
-
-        //public SourceMapping CreateMapping(int sourceIndex, int nameIndex)
-        //{
-
-        //    var mapping = new SourceMapping() { SourceIndex = sourceIndex, NameIndex = nameIndex, Input = new LineNumberAndPosition(CurrentLineNumber, ) }
-        //}
+      
         public bool IsContent { get; set; }
 
         public string Name { get; set; }

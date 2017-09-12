@@ -1,7 +1,5 @@
 ﻿namespace DotNet.SourceMaps
 {
-
-
     public class SourceMapping
     {
         public LineNumberAndPosition Output { get; set; }
@@ -15,9 +13,6 @@
         {
             Offset = new SourceMappingOffset(previous, this);
         }
-
-
-
     }
 
     //public struct SourceMappingSegment
